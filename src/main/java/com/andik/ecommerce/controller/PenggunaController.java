@@ -13,40 +13,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.andik.ecommerce.entity.Produk;
-import com.andik.ecommerce.service.ProdukService;
+import com.andik.ecommerce.entity.Pengguna;
+import com.andik.ecommerce.service.PenggunaService;
 
 @RestController
 @RequestMapping("/api")
 @PreAuthorize("isAuthenticated()")
-public class ProdukController {
+public class PenggunaController {
 
     @Autowired
-    private ProdukService produkService;
+    private PenggunaService penggunaService;
 
-    @GetMapping("/produks")
-    public List<Produk> findAll() {
-        return produkService.findAll();
+    @GetMapping("/penggunas")
+    public List<Pengguna> findAll() {
+        return penggunaService.findAll();
     }
 
-    @GetMapping("/produks/{id}")
-    public Produk findById(@PathVariable("id") String id) {
-        return produkService.findById(id);
+    @GetMapping("/penggunas/{id}")
+    public Pengguna findById(@PathVariable("id") String id) {
+        return penggunaService.findById(id);
     }
 
-    @PostMapping("/produks")
-    public Produk create(@RequestBody Produk produk) {
-        return produkService.create(produk);
+    @PostMapping("/penggunas")
+    public Pengguna create(@RequestBody Pengguna pengguna) {
+        return penggunaService.create(pengguna);
     }
 
-    @PutMapping("/produks")
-    public Produk edit(@RequestBody Produk produk) {
-        return produkService.edit(produk);
+    @PutMapping("/penggunas")
+    public Pengguna edit(@RequestBody Pengguna pengguna) {
+        return penggunaService.edit(pengguna);
     }
 
-    @DeleteMapping("/produks/{id}")
+    @DeleteMapping("/penggunas/{id}")
     public void deleteById(@PathVariable("id") String id) {
-        produkService.deleteById(id);
+        penggunaService.deleteById(id);
     }
 
 }
