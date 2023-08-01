@@ -20,15 +20,10 @@ public class Pengguna implements Serializable {
     @JsonIgnore
     private String password;
     private String nama;
-    @JsonIgnore
     private String alamat;
-    @JsonIgnore
     private String email;
-    @JsonIgnore
     private String hp;
-    @JsonIgnore
     private String roles;
-    @JsonIgnore
     private Boolean isAktif;
 
     public Pengguna(String username) {

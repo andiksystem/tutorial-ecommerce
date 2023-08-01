@@ -54,7 +54,7 @@ public class AuthController {
         UserDetailsImpl principal = (UserDetailsImpl) authentication.getPrincipal();
         return ResponseEntity.ok()
                 .body(new JwtResponse(token, refreshToken, principal.getUsername(), principal.getEmail(),
-                        principal.getRoles()));
+                        principal.getRoles(), principal.getNama()));
     }
 
     @PostMapping("/signup")
@@ -84,6 +84,6 @@ public class AuthController {
         String newToken = jwtUtils.generateJwtToken(authentication);
         String refreshToken = jwtUtils.generateRefresJwtToken(authentication);
         return ResponseEntity.ok(new JwtResponse(newToken, refreshToken, username, userDetailsImpl.getEmail(),
-                userDetailsImpl.getRoles()));
+                userDetailsImpl.getRoles(), userDetailsImpl.getNama()));
     }
 }

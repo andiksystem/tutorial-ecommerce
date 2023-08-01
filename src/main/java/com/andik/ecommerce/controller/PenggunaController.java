@@ -44,6 +44,13 @@ public class PenggunaController {
         return penggunaService.edit(pengguna);
     }
 
+    @PutMapping("/profile")
+    public Pengguna updateProfile(@RequestBody Pengguna pengguna) {
+        Pengguna old = penggunaService.findById(pengguna.getId());
+        pengguna.setPassword(old.getPassword());
+        return penggunaService.edit(pengguna);
+    }
+
     @DeleteMapping("/penggunas/{id}")
     public void deleteById(@PathVariable("id") String id) {
         penggunaService.deleteById(id);
